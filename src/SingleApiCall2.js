@@ -3,9 +3,10 @@ import axios from 'axios';
 
 const baseUrl = 'https://jsonplaceholder.typicode.com';
 
-function SingleApiCall() {
+function SingleApiCall2() {
 	const [posts, setPosts] = useState([]);
 	const [isMounted, setIsMounted] = useState(true);
+	const [showPosts, setShowPosts] = useState(false);
 
 	const fetchPosts = useCallback(async () => {
 		try {
@@ -32,15 +33,18 @@ function SingleApiCall() {
 	return (
 		<div>
 			<h1>Posts</h1>
-			{posts &&
-				posts.map((post, idx) => (
-					<div key={idx}>
-						<h2>{post.id}</h2>
-						<h3 data-testid="post-title">{post.title}</h3>
+			<button onClick={() => setShowPosts(true)} data-testid="show-posts">
+				Show API Data
+			</button>
+			{showPosts &&
+				posts?.map((post, idx) => (
+					<div data-testid="post-title" key={idx}>
+						{post.title}
 					</div>
 				))}
+			<div data-testid="post-title">qui est esse</div>
 		</div>
 	);
 }
 
-export default SingleApiCall;
+export default SingleApiCall2;

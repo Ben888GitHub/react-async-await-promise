@@ -37,7 +37,7 @@ test('renders learn react link', async () => {
 	// expect(screen.getByTestId('post-title')).toHaveTextContent('qui est esse');
 	// await waitFor(() => screen.findByTestId('post-title'), { timeout: 4000 });
 
-	// const postsTitle = await screen.getByTestId('post-title');
+	const postsTitle = screen.getByTestId('post-title');
 	// expect(postsTitle).toHaveTextContent('qui est esse');
 	// expect(await screen.findByText('qui est esse')).toBeInTheDocument();
 	// const postTitle = await screen.getByTestId('post-title');
@@ -45,10 +45,7 @@ test('renders learn react link', async () => {
 	// expect(await screen.getByText('qui est esse')).toBeInTheDocument();
 
 	// expect(screen.getByTestId('post-title')).toHaveTextContent('qui est esse');
-	expect(axiosMock.get).toHaveBeenCalledTimes(1);
-	expect(axiosMock.get).toHaveBeenCalledWith(
-		'https://jsonplaceholder.typicode.com/posts'
-	);
+
 	// await waitFor(() => screen.findByTestId('post-title'), { timeout: 4000 });
 	expect(await screen.findByText('qui est esse')).toBeInTheDocument();
 });

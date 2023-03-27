@@ -35,7 +35,7 @@ function MultipleApiCalls() {
 			<h1>Posts</h1>
 
 			{posts &&
-				posts.map((post, idx) => (
+				posts?.map((post, idx) => (
 					<div key={idx}>
 						<h2>{post.id}</h2>
 						<h3>{post.title}</h3>
@@ -45,7 +45,7 @@ function MultipleApiCalls() {
 			<br />
 			<h1>Todos</h1>
 			{todos &&
-				todos.map((todo, idx) => (
+				todos?.map((todo, idx) => (
 					<div key={idx}>
 						<h2>{todo.id}</h2>
 						<h3>{todo.title}</h3>

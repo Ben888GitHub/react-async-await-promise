@@ -13,11 +13,17 @@ function MultipleApiCalls() {
 		const todosData = axios.get(`${baseUrl}/todos`);
 
 		// fetch API in parallel
-		const [posts, todos] = await Promise.all([postsData, todosData]);
+		const [postsList, todosList] = await Promise.all([postsData, todosData]);
 
 		if (isMounted) {
-			setPosts(posts.data.slice(0, 3));
-			setTodos(todos.data.slice(0, 3));
+			// * normal way to update state
+			setPosts(postsList.data.slice(0, 3));
+			setTodos(todosList.data.slice(0, 3));
+
+			// * more recommended way to update array state when Create or Update
+			// setPosts((prevPosts) => [...prevPosts, posts?.data?.slice(0, 3)]);
+			// setTodos((prevTodos) => [...prevTodos, todos.data.slice(0, 3)]);
+			// * resource from: https://dev.to/codux/react-lessons-from-the-trenches-useeffect-x-infinity-1e3d
 		}
 	}, [isMounted]);
 

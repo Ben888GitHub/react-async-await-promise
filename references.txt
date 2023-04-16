@@ -1,1 +1,3 @@
 https://dev.to/codux/react-lessons-from-the-trenches-useeffect-x-infinity-1e3d
+
+https://blog.logrocket.com/using-axios-all-make-concurrent-requests/
